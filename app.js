@@ -8,7 +8,7 @@ const ServerErrorHandler = require('./middleware/ServerErrorHandler.js')
 const HOST = process.env.HOST
 const PORT = process.env.PORT
 
-server.use(cors())
+server.use(cors({ origin: 'http://localhost:5173' }))
 
 server.get('/', (req, res) => {
     res.send('Server is up n Running')
