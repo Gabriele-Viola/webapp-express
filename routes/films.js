@@ -7,5 +7,8 @@ router.get('/', FilmsController.index)
 
 router.get('/:id', FilmsController.show)
 
+router.post('/:id/review', FilmsController.createRev)
+
+
 
 module.exports = router
