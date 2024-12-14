@@ -27,16 +27,13 @@ function show(req, res) {
         connection.query(reviewsSql, [id], (err, reviewsResults) => {
             if (err) return res.status(500).json({ err: err })
 
-            connection.query(averageSql, [id], (err, avgResults) => {
-                if (err) return res.status(500).json({ err: err })
-                const average = avgResults[0].average_vote
-                const film = {
-                    ...results[0],
-                    reviews: reviewsResults,
-                    average_vote: average
-                }
-                res.json(film)
-            })
+
+            const film = {
+                ...results[0],
+                reviews: reviewsResults,
+            }
+            res.json(film)
+
         })
     })
 }
